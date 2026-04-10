@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             xmlns:local="clr-namespace:MauiApp1">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            HorizontalOptions="Start">
+            <Label
+                Text="Curenncy exchange rate"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <HorizontalStackLayout Spacing="10" Padding="30,0" HorizontalOptions="Start" VerticalOptions="Center">
+                <Entry
+                    x:Name="From"
+                    HorizontalOptions="Fill"
+                    />
+                <Entry
+                    x:Name="To"
+                    HorizontalOptions="Fill"
+                    />
+                <Button
+                    x:Name="convert"
+                    Text="convert"
+                    Clicked="Add_rates"
+                    HorizontalOptions="Fill"/>
+                <Label
+                    x:Name="Rate_label"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10" Padding="30,0" HorizontalOptions="Start" VerticalOptions="Center">
+                <Entry
+                x:Name="Code_entry"
+                HorizontalOptions="Fill"
+                />
+                <Entry
+                x:Name="Rate_entry"
+                HorizontalOptions="Fill"
+                />
+                <Button
+                x:Name="add_to_base"
+                Text="add to db"
+                Clicked="add_to_database"
+                HorizontalOptions="Fill"/>
+                    <Label
+                x:Name="Add_label"/>   
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10" Padding="30,0" HorizontalOptions="Start" VerticalOptions="Center">
+                <Button
+                    x:Name="show_currency"
+                    Text="Wyswietl wszystkie waluty"
+                    HorizontalOptions="Fill"
+                    Clicked="show_currencies"
+                    />
+                <Button
+                x:Name="show_rates"
+                Text="Wyswietl wszystkie kursy"
+                HorizontalOptions="Fill"
+                Clicked="show_rate"/>
+                <Button
+                x:Name="show_sorted_down"
+                Text="Pokaz posortowane malejaco"
+                HorizontalOptions="Fill"
+                Clicked="show_sort_down"/>
+                <Button
+                x:Name="show_sorted_up"
+                Text="Pokaz posortowane rosnaco"
+                HorizontalOptions="Fill"
+                Clicked="show_sort_up"/>
+                <Entry
+                x:Name="filtr_entry"
+                HorizontalOptions="Fill"
+                />
+                <Button
+                 x:Name="Show_filtered"
+                 Text="Pokaz filtrowane"
+                 HorizontalOptions="Fill"
+                 Clicked="show_filtered"/>
+            </HorizontalStackLayout>
+            <CollectionView x:Name="CurrenciesCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="18"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
